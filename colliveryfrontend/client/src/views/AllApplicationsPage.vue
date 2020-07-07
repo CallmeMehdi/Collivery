@@ -62,7 +62,7 @@
                 justify="center"
                 md="3"
               >
-                <div class="mb-0 font">Date : {{ item.date }}</div>
+                <div class="mb-0 font">Phone number : {{ item.date }}</div>
                 <v-divider inset vertical></v-divider>
               </v-col>
 
@@ -165,26 +165,6 @@ export default {
   name: "AllApplicationsPage",
   data: () => ({
     applications: [
-      {
-        _id: 0,
-        user: "Client2",
-        info: "Please be carefull with the material inside ",
-        starting: "Tunis",
-        destination: "Sfax",
-        date: "12/12/12",
-        weight: "60KG",
-        state: 2,
-      },
-      {
-        _id: 1,
-        user: "Client1",
-        info: "Sensitive items inside",
-        destR: "Ben Arouss",
-        destZ: "Mrj5",
-        date: "12/12/15",
-        weight: "600KG",
-        state: 1,
-      },
     ],
     loaded: true,
     trashLoading: false,
@@ -199,7 +179,6 @@ export default {
         console.log(err);
       });
 
-    //API CALL
   },
   methods: {
     getColorState(itemState) {
@@ -212,12 +191,13 @@ export default {
       }
     },
     // eslint-disable-next-line no-unused-vars
-    cancelDemande(_id) {
+    cancelDemande(id) {
       this.trashLoading = true;
        DemandesService.cancelCollivery({
-        id: _id,
-      }).then(() => {
+        _id: id,
+      }).then((resp) => {
         this.trashLoading = false;
+        console.log(resp);
       });
     },
   },

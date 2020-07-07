@@ -195,7 +195,7 @@ export default {
         {
           name: "Colliveries",
           icon: "fas fa-paper-plane",
-          link: this.$store.state.currentUser == undefined?  "/" :"AllApplicationsPage",
+          link: this.$store.state.currentUser == undefined?  "AllApplicationsPage" :"AllApplicationsPage",
         },
       ],
       loginButton: {

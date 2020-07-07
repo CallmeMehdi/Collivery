@@ -17,6 +17,13 @@ export default new Vuex.Store({
 
   },
   mutations: {},
-  actions: {},
+  actions: {
+    pressLogin: ({ commit }, payload) => {
+      commit("changeLoginPressedState", payload);
+    },
+    loginUser: ({ commit }, payload) => {
+      commit("setUser", payload);
+    }
+  },
   modules: {}
 });

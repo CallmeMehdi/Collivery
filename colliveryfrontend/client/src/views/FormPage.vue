@@ -45,7 +45,7 @@
             class="txt"
             color="#478D99"
             required
-            v-model="start"
+            v-model="starting"
           ></v-select>
 
           <v-label><h3>Destination: </h3></v-label>
@@ -58,7 +58,7 @@
             v-model="destination"
           ></v-select>
 
-          <v-label><h3>Date:</h3></v-label>
+          <v-label><h3>Phone number :</h3></v-label>
           <v-text-field
             :counter="10"
             :rules="reasonRules"
@@ -69,12 +69,8 @@
           <div class="text-center">
             <v-btn
               @click="validate"
-              :class="
-                hover && !fieldControl ? 'mt--10 glowing-border' : 'mt--10'
-              "
               :ripple="{ class: 'red--text' }"
               class="title "
-              :disabled="fieldControl"
               color="#478D99"
               height="30px"
               rounded
@@ -139,7 +135,7 @@ export default {
         try {
         await DemandesService.addCollivery({
             user: this.$store.state.currentUser.name,
-            date: this.data,
+            date: this.date,
             weight: this.weight,
             info: this.info,
             starting: this.starting,
